@@ -1,77 +1,276 @@
-# AirBnB Clone - The Console
+# 0x00. AirBnB clone - The console
 
-### Description:
-AirBnB Clone - The Console is a command-line interface (CLI) application that serves as the backend for a simplified version of the popular online accommodation booking platform, AirBnB. This project aims to replicate some of the core functionalities of AirBnB, allowing users to manage and interact with properties, users, and booking information through a text-based interface.
+## 0x00.Table of contents
 
-### Command interpreter
-The command interpreter for the AirBnB Clone project serves as the primary interface for users to interact with the backend functionality of the application. It provides a text-based environment where users can execute commands to perform various operations related to managing properties, users, bookings, and more.
+* [0x01 Introduction](#0x01-Introduction)
+* [0x02 Environment](#0x02-Environment)
+* [0x03 Installation](#0x03-Installation)
+* [0x04 Testing](#0x04-Testing)
+* [0x05 Usage](#0x05-Usage)
+* [0x06 Authors](#0x06-Authors)
 
-### How it Works:
-- Upon launching the command interpreter, users are greeted with a prompt indicating that the console is ready to accept commands.
-- Users input commands along with any required arguments or options, then press Enter to execute the command.
-- The interpreter processes the command, performs the specified operation, and provides feedback or output based on the result.
+## 0x01 Introduction
 
-### Features:
-- Property Management: Users can create, update, delete, and view properties.
-- User Management: Administrators can manage user accounts, including creation, deletion, and permission management.
-- Booking Management: Users can make bookings for properties and view booking details.
-- Search and Filter: Users can search for properties based on various criteria such as location, price, amenities, etc.
+Team project to build a clone of [AirBnB](https://www.airbnb.com/).
 
-### Example:
-Here's an example of how a user might interact with the command interpreter:
+The console is a command interpreter to manage objects abstraction between objects and how they are stored.
 
-1. User types create user JohnDoe john@example.com password123 and presses Enter to create a new user with the name "JohnDoe," email "john@example.com," and password "password123."
-2. User types list users and presses Enter to view a list of all users in the system, including the newly created user "JohnDoe."
-3. User types book property 1234 2024-03-01 2024-03-05 and presses Enter to book a property with ID 1234 for the dates March 1st, 2024 to March 5th, 2024.
-4. User types search property --location New York and presses Enter to search for properties located in New York.
+To see the fundamental background of the project visit the [Wiki](https://github.com/ralexrivero/AirBnB_clone/wiki).
 
-### Technologies Used:
-- Python: The core programming language used for developing the backend logic.
-- Command-Line Interface (CLI): Built using the cmd module in Python to provide a user-friendly text-based interface.
-- Serialization: Serialization techniques such as JSON are used to store and retrieve data persistently.
+The console will perform the following tasks:
 
-### Contributors:
-- Prosper Atu
-- Godsway Asamoah
+* create a new object
+* retrive an object from a file
+* do operations on objects
+* destroy an object
 
-# For this Project we are expected to know the following
+### Storage
 
-### How to create a Python package?
+All the classes are handled by the `Storage` engine in the `FileStorage` Class.
 
-To create a Python package, you need to organize your code into a directory structure and include a special file called `__init__.py`. This file can be empty or contain initialization code for the package. You can then use the import statement to access modules and objects within the package.
+## 0x02 Environment
 
-### How to create a command interpreter in Python using the cmd module?
+<!-- ubuntu -->
+<a href="https://ubuntu.com/" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=Ubuntu&color=E95420&logo=Ubuntu&logoColor=E95420&labelColor=2F333A" alt="Suite CRM"></a> <!-- bash --> <a href="https://www.gnu.org/software/bash/" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=GNU%20Bash&color=4EAA25&logo=GNU%20Bash&logoColor=4EAA25&labelColor=2F333A" alt="terminal"></a> <!-- python--> <a href="https://www.python.org" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=Python&color=FFD43B&logo=python&logoColor=3776AB&labelColor=2F333A" alt="python"></a> </a> <!-- vim --> <a href="https://www.vim.org/" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=Vim&color=019733&logo=Vim&logoColor=019733&labelColor=2F333A" alt="Suite CRM"></a> <!-- vs code --> <a href="https://code.visualstudio.com/" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=Visual%20Studio%20Code&color=5C2D91&logo=Visual%20Studio%20Code&logoColor=5C2D91&labelColor=2F333A" alt="Suite CRM"></a> </a><!-- git --> <a href="https://git-scm.com/" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=Git&color=F05032&logo=Git&logoColor=F05032&labelColor=2F333A" alt="git distributed version control system"></a> <!-- github --> <a href="https://github.com" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=GitHub&color=181717&logo=GitHub&logoColor=f2f2f2&labelColor=2F333A" alt="Github"></a>
+ <!-- Style guidelines -->
+* Style guidelines:
+  * [pycodestyle (version 2.7.*)](https://pypi.org/project/pycodestyle/)
+  * [PEP8](https://pep8.org/)
 
-You can create a command interpreter in Python using the cmd module, which provides a framework for building simple command-line interpreters. You can subclass the cmd.Cmd class and define methods for each command you want to support. The cmd module handles command parsing, completion, and help text generation.
+All the development and testing was runned over an operating system Ubuntu 20.04 LTS using programming language Python 3.8.3. The editors used were VIM 8.1.2269, VSCode 1.6.1 and Atom 1.58.0 . Control version using Git 2.25.1.
 
-### What is Unit testing and how to implement it in a large project?
+## 0x03 Installation
 
-Unit testing is a software testing technique where individual units or components of a program are tested in isolation to ensure they work correctly. In a large project, you can implement unit testing using testing frameworks like unittest, pytest, or nose. Write test cases for each unit or function in your codebase to verify its behavior under different conditions.
+```bash
+git clone https://github.com/aysuarex/AirBnB_clone.git
+```
 
-### How to serialize and deserialize a Class?
+change to the `AirBnb` directory and run the command:
 
-`Serialization` is the process of converting an object into a format that can be stored or transmitted, such as JSON or XML. `Deserialization` is the reverse process of converting the serialized data back into an object. In Python, you can use libraries like pickle, json, or marshal for `serialization` and `deserialization`.
+```bash
+ ./console.py
+```
 
-### How to write and read a JSON file?
+### Execution
 
-You can write JSON data to a file using the `json.dump()` function and read JSON data from a file using the `json.load()` function. These functions allow you to serialize Python objects to JSON format and deserialize JSON data into Python objects, respectively.
+In interactive mode
 
-### How to manage datetime?
+```bash
+$ ./console.py
+(hbnb) help
 
-In Python, you can use the `datetime` module to work with dates and times. You can create `datetime` objects representing specific dates and times, perform arithmetic operations on them, format them as strings, and convert them to different time zones.
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
 
-### What is an UUID?
+(hbnb)
+(hbnb)
+(hbnb) quit
+$
+```
 
-UUID stands for Universally Unique Identifier. It is a `128-bit` identifier that is guaranteed to be unique across space and time. `UUIDs` are commonly used to identify objects or entities in distributed systems where uniqueness is critical.
+in Non-interactive mode
 
-### What is *args and how to use it?
+```bash
+$ echo "help" | ./console.py
+(hbnb)
 
-`*args` is a special syntax in Python that allows a function to accept a variable number of positional arguments. It collects any additional positional arguments passed to the function into a tuple. You can use `*args` when you don't know in advance how many arguments will be passed to the function.
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb)
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
 
-### What is **kwargs and how to use it?
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb)
+$
+```
 
-`**kwargs` is similar to `*args`, but it collects additional keyword arguments passed to a function into a dictionary instead of a tuple. This allows you to pass a variable number of keyword arguments to a function.
+## 0x04 Testing
 
-### How to handle named arguments in a function?
+All the test are defined in the `tests` folder.
 
-Named arguments in a function are specified by providing the argument name followed by a colon and the argument value (name=value). Inside the function, you can access named arguments using their names. Named arguments provide clarity and flexibility when calling functions, especially for functions with many parameters.
+### Documentation
+
+* Modules:
+
+```python
+python3 -c 'print(__import__("my_module").__doc__)'
+```
+
+* Classes:
+
+```python
+python3 -c 'print(__import__("my_module").MyClass.__doc__)'
+```
+
+* Functions (inside and outside a class):
+
+```python
+python3 -c 'print(__import__("my_module").my_function.__doc__)'
+```
+
+and
+
+```python
+python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
+```
+
+### Python Unit Tests
+
+* unittest module
+* File extension ``` .py ```
+* Files and folders star with ```test_```
+* Organization:for ```models/base.py```, unit tests in: ```tests/test_models/test_base.py```
+* Execution command: ```python3 -m unittest discover tests```
+* or: ```python3 -m unittest tests/test_models/test_base.py```
+
+### run test in interactive mode
+
+```bash
+echo "python3 -m unittest discover tests" | bash
+```
+
+### run test in non-interactive mode
+
+To run the tests in non-interactive mode, and discover all the test, you can use the command:
+
+```bash
+python3 -m unittest discover tests
+```
+
+
+## 0x05 Usage
+
+* Start the console in interactive mode:
+
+```bash
+$ ./console.py
+(hbnb)
+```
+
+* Use help to see the available commands:
+
+```bash
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  all  count  create  destroy  help  quit  show  update
+
+(hbnb)
+```
+
+* Quit the console:
+
+```bash
+(hbnb) quit
+$
+```
+
+### Commands
+
+> The commands are displayed in the following format *Command / usage / example with output*
+
+* Create
+
+> *Creates a new instance of a given class. The class' ID is printed and the instance is saved to the file file.json.*
+
+```bash
+create <class>
+
+```
+
+```bash
+(hbnb) create BaseModel
+6cfb47c4-a434-4da7-ac03-2122624c3762
+(hbnb)
+```
+
+* Show
+
+```bash
+show <class> <id>
+```
+
+```bash
+(hbnb) show BaseModel 6cfb47c4-a434-4da7-ac03-2122624c3762
+[BaseModel] (a) [BaseModel] (6cfb47c4-a434-4da7-ac03-2122624c3762) {'id': '6cfb47c4-a434-4da7-ac03-2122624c3762', 'created_at': datetime.datetime(2021, 11, 14, 3, 28, 45, 571360), 'updated_at': datetime.datetime(2021, 11, 14, 3, 28, 45, 571389)}
+(hbnb)
+```
+
+* Destroy
+
+> *Deletes an instance of a given class with a given ID.*
+> *Update the file.json*
+
+```bash
+(hbnb) create User
+0c98d2b8-7ffa-42b7-8009-d9d54b69a472
+(hbnb) destroy User 0c98d2b8-7ffa-42b7-8009-d9d54b69a472
+(hbnb) show User 0c98d2b8-7ffa-42b7-8009-d9d54b69a472
+** no instance found **
+(hbnb)
+```
+
+* all
+
+> *Prints all string representation of all instances of a given class.*
+> *If no class is passed, all classes are printed.*
+
+```bash
+(hbnb) create BaseModel
+e45ddda9-eb80-4858-99a9-226d4f08a629
+(hbnb) all BaseModel
+["[BaseModel] (4c8f7ebc-257f-4ed1-b26b-e7aace459897) [BaseModel] (4c8f7ebc-257f-4ed1-b26b-e7aace459897) {'id': '4c8f7ebc-257f-4ed1-b26b-e7aace459897', 'created_at': datetime.datetime(2021, 11, 13, 22, 19, 19, 447155), 'updated_at': datetime.datetime(2021, 11, 13, 22, 19, 19, 447257), 'name': 'My First Model', 'my_number': 89}"]
+["[BaseMode
+```
+
+* count
+
+> *Prints the number of instances of a given class.*
+
+```bash
+(hbnb) create City
+4e01c33e-2564-42c2-b61c-17e512898bad
+(hbnb) create City
+e952b772-80a5-41e9-b728-6bc4dc5c21b4
+(hbnb) count City
+2
+(hbnb)
+```
+
+* update
+
+> *Updates an instance based on the class name, id, and kwargs passed.*
+> *Update the file.json*
+```
+## Authors
+<details>
+    <summary>Godswill Kalu</summary>
+    <summary>TIESSIA BOLA</summary>
+    <ul>
+    <li><a href="https://www.github.com/lordwill">Github</a></li>
+    <li><a href="mailto:messagelordwill@gmail.com">e-mail</a></li>
+    <li><a href="https://www.github.com/Adamsbola">Github</a></li>
+    <li><a href="mailto:adamadu52@gmail.com">e-mail</a></li>
+    </ul>
+</details>
+
+## How to add Author file
+`Bash script for generating the list of authors in git repo`
+```
+#!/bin/sh
+
+git shortlog -se \
+  | perl -spe 's/^\s+\d+\s+//' \
+  | sed -e '/^CommitSyncScript.*$/d' \
+  > AUTHORS
+  ```
